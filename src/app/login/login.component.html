@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="left-section">
+        <img src="assets/Bg.png" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+    <div class="right-section">
+        <div class="login-form">
+            <h1>Welcome Back!</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <input type="text" id="username" formControlName="username" placeholder="User name or email address" />
+                <div *ngIf="isInvalid('username')" class="error-message">
+                    <small>{{ getErrorMessage('username') }}</small>
+                </div>
+                <input type="password" id="password" formControlName="password" placeholder="Password" />
+                <div *ngIf="isInvalid('password')" class="error-message">
+                    <small>{{ getErrorMessage('password') }}</small>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" formControlName="remember" />
+                    <label for="remember">Remember me</label>
+                </div>
+                <a (click)="onForgotPassword()" class="forgot-password">Forgot password?</a>
+                <button type="submit" class="login-button">Log in</button>
+                <div class="divider"><span>OR</span></div>
+                <div class="bottom-text">
+                    <p>Don't have an account? <a (click)="onSignup()">Register</a></p> 
+                </div>
+            </form>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </div>
+    </div>
+</div>

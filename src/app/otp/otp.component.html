@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="logo">
+    <img src="assets/artisetLogo.png" alt="Artiset Logo">
+  </div>
+
+  <div class="login-box">
+    <div class="icon">
+      <img src="assets/security.png" alt="Lock Icon">
+    </div>
+    <h2>OTP Verification</h2>
+    <p>We’ve sent an OTP to your e-mail. This code will expire in {{ countdown }} s</p>
+
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+      <div class="input-field">
+        <input 
+          type="text" 
+          formControlName="otp1" 
+          maxlength="1" 
+          id="input1" 
+          (input)="validateInput('otp1', 'input2')" 
+          (keydown)="moveToPrevious($event, 'input1')">
+          
+        <input 
+          type="text" 
+          formControlName="otp2" 
+          maxlength="1" 
+          id="input2" 
+          (input)="validateInput('otp2', 'input3')" 
+          (keydown)="moveToPrevious($event, 'input2')">
+          
+        <input 
+          type="text" 
+          formControlName="otp3" 
+          maxlength="1" 
+          id="input3" 
+          (input)="validateInput('otp3', 'input4')" 
+          (keydown)="moveToPrevious($event, 'input3')">
+          
+        <input 
+          type="text" 
+          formControlName="otp4" 
+          maxlength="1" 
+          id="input4" 
+          (input)="validateInput('otp4', '')" 
+          (keydown)="moveToPrevious($event, 'input4')">
+      </div>
+
+      <div *ngIf="showEmptyError" id="error-message" style="color: yellow;">
+        Please enter your OTP.
+      </div>
+
+      <div *ngIf="showError" id="error-message" style="color: yellow;">
+        Please enter only numeric values.
+      </div>
+
+      <button type="submit" [disabled]="!isOtpComplete()" [ngStyle]="{'background-color': isOtpComplete() ? '#29a2d6' : 'lightgray'}">Verify Code</button>
+    </form>
+
+    <div class="footer-text">
+      <p *ngIf="canResend">If you didn't receive the code!! <a (click)="resendOtp()">Resend</a></p>
+    </div>
+  </div>
+</div>

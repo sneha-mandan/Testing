@@ -1,0 +1,475 @@
+<!-- <div class="top-section">
+    <img src="/assets/headerimg.jpg" height="400px" width="100%" alt="Top Image" />
+    <h1>Join Us and Experience a Difference!</h1>
+</div>
+
+<div class="top-left">
+    <img src="/assets/artisetLogo.png" alt="Logo" />
+</div>
+
+<div class="form-container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <legend>Personal Details</legend>
+        
+        <div class="input-row">
+            <input type="text" formControlName="fullname" placeholder="Enter your full name" />
+            <input type="email" formControlName="email" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-row">
+            <select formControlName="gender" class="gender-select">
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="date" formControlName="dob" />
+            <input type="tel" formControlName="mobile" placeholder="Mobile Number" />
+        </div>
+
+        <div class="input-row">
+            <select formControlName="current_state" class="dropdown">
+                <option value="" disabled>Current State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+            </select>
+            <select formControlName="current_city" class="dropdown">
+                <option value="" disabled>Current City</option>
+                <option value="Mumbai">Mumbai</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <select formControlName="home_state" class="dropdown">
+                <option value="" disabled>Home State</option>
+                <option value="Bihar">Bihar</option>
+            </select>
+            <select formControlName="home_city" class="dropdown">
+                <option value="" disabled>Home City</option>
+                <option value="Delhi">Delhi</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <select formControlName="preferred_location" class="dropdown">
+                <option value="" disabled>Preferred Location</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+            <input type="email" formControlName="alternate_email" placeholder="Alternate Email" />
+        </div>
+
+        <div class="input-row">
+            <input type="password" formControlName="password" placeholder="Password" />
+            <input type="password" formControlName="confirm_password" placeholder="Confirm Password" />
+        </div>
+
+        <legend class="edu">Education Details</legend>
+        <div class="input-row">
+            <select formControlName="education_level" class="dropdown">
+                <option value="" disabled>Education Level</option>
+                <option value="Bachelor's">Bachelor's</option>
+            </select>
+            <input type="text" formControlName="college" placeholder="College" />
+        </div>
+
+        <div class="input-row">
+            <select formControlName="course" class="dropdown">
+                <option value="" disabled>Course</option>
+                <option value="Engineering">Engineering</option>
+            </select>
+            <input type="text" formControlName="specialization" placeholder="Specialization" />
+            <input type="text" formControlName="cgpa" placeholder="Avg Marks (CGPA)" />
+        </div>
+
+        <legend class="pro">Professional Details</legend>
+        <div class="input-row">
+            <select formControlName="position_applying" class="dropdown">
+                <option value="" disabled>Position Applying</option>
+                <option value="Software Engineer">Software Engineer</option>
+            </select>
+            <input type="file" formControlName="resume" class="file-input" accept=".jpg, .jpeg, .png, .xlsx, .xls, .doc, .docx, .pdf" />
+        </div>
+
+        <div class="input-row">
+            <select formControlName="primary_skill" class="dropdown">
+                <option value="" disabled>Primary Skill</option>
+                <option value="Java">Java</option>
+            </select>
+            <select formControlName="secondary_skill" class="dropdown">
+                <option value="" disabled>Secondary Skill</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+        </div>
+
+        <div class="checkbox-row">
+            <input type="checkbox" formControlName="agree" />
+            <label>I have checked all the information.</label>
+        </div>
+
+        <div class="submit-row">
+            <button type="submit">Submit</button>
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+        </div>
+    </form>
+</div>  -->
+
+
+
+
+<div class="top-section">
+    <img src="/assets/headerimg.jpg" height="400px" width="100%" alt="Top Image" />
+    <h1>Join Us and Experience a Difference!</h1>
+</div>
+
+<div class="top-left">
+    <img src="/assets/artisetLogo.png" alt="Logo" />
+</div>
+
+<div class="form-container">
+    <legend>Personal Details</legend>
+    <form [formGroup]="userForm">
+        <div class="input-row">
+            <div class="fullname">
+                <input type="text" formControlName="fullName" placeholder="Enter your full name" />
+                <div class="error-message"
+                    *ngIf="userForm.get('fullName')?.invalid && (userForm.get('fullName')?.touched || userForm.get('fullName')?.dirty)">
+                    <small *ngIf="userForm.get('fullName')?.errors?.['required']">Full Name is required.</small>
+                    <small *ngIf="userForm.get('fullName')?.errors?.['invalidName']">Full Name must be at least 3
+                        characters and contain only letters.</small>
+                </div>
+            </div>
+            <div class="email">
+                <input type="email" formControlName="email" placeholder="Enter your email" />
+                <div class="error-message"
+                    *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.touched || userForm.get('email')?.dirty)">
+                    <small *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="input-row">
+            <select formControlName="gender" class="gender-select">
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="gender-error"
+                *ngIf="userForm.get('gender')?.invalid && (userForm.get('gender')?.touched || userForm.get('gender')?.dirty)">
+                <small *ngIf="userForm.get('gender')?.errors?.['required']">Gender is required.</small>
+            </div>
+
+            <input type="date" formControlName="dob" class="dob-input" />
+
+            <div class="dob-error"
+                *ngIf="userForm.get('dob')?.invalid && (userForm.get('dob')?.touched || userForm.get('dob')?.dirty)">
+                <small *ngIf="userForm.get('dob')?.errors?.['required']">DOB is required.</small>
+            </div>
+
+            <input type="tel" formControlName="mobile" placeholder="Mobile Number" />
+            <div class="mobile-error"
+                *ngIf="userForm.get('mobile')?.invalid && (userForm.get('mobile')?.touched || userForm.get('mobile')?.dirty)">
+                <small *ngIf="userForm.get('mobile')?.errors?.['required']">Mobile number is required.</small>
+                <small *ngIf="userForm.get('mobile')?.errors?.['pattern']">Mobile number must be exactly 10 digits and
+                    numeric only.</small>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <input type="tel" formControlName="alternateMobile" placeholder="Alternate Mobile Number" />
+            <div class="alternatemobile-error"
+                *ngIf="userForm.get('alternateMobile')?.invalid && (userForm.get('alternateMobile')?.touched || userForm.get('alternateMobile')?.dirty)">
+                <small *ngIf="userForm.get('alternateMobile')?.errors?.['required']">Alternate mobile number is
+                    required.</small>
+                <small *ngIf="userForm.get('alternateMobile')?.errors?.['pattern']">Alternate mobile number must be
+                    exactly 10 digits and numeric only.</small>
+            </div>
+
+            <div class="alternatemobile-error"
+                *ngIf="userForm.hasError('mobileDifference') && (userForm.get('alternateMobile')?.touched || userForm.get('alternateMobile')?.dirty)">
+                <small>Mobile number and alternate mobile number must be different.</small>
+            </div>
+
+            <input type="email" formControlName="alternateEmail" placeholder="Alternate Email" />
+            <div class="alternateEmail-error"
+                *ngIf="userForm.get('alternateEmail')?.invalid && (userForm.get('alternateEmail')?.touched || userForm.get('alternateEmail')?.dirty)">
+                <small *ngIf="userForm.get('alternateEmail')?.errors?.['required']">Alternate Email is required.</small>
+                <small *ngIf="userForm.get('alternateEmail')?.errors?.['email']">Please enter a valid email
+                    address.</small>
+            </div>
+
+            <div class="alternateEmail-error"
+                *ngIf="userForm.errors?.['emailDifference'] && (userForm.get('email')?.dirty || userForm.get('alternateEmail')?.dirty)">
+                <small>Email and alternate email must be different.</small>
+            </div>
+
+        </div>
+
+        <div class="input-row">
+            <select formControlName="currentState" class="dropdown">
+                <option value="" disabled>Select Current State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+            <div class="state-error"
+                *ngIf="userForm.get('currentState')?.invalid && (userForm.get('currentState')?.touched || userForm.get('currentState')?.dirty)">
+                <small>Current state is required.</small>
+            </div>
+
+            <select formControlName="currentCity" class="dropdown">
+                <option value="" disabled>Select Current City</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Pune">Pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
+            <div class="city-error"
+                *ngIf="userForm.get('currentCity')?.invalid && (userForm.get('currentCity')?.touched || userForm.get('currentCity')?.dirty)">
+                <small>Current city is required.</small>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <select formControlName="homeState" class="dropdown">
+                <option value="" disabled>Select Home State</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Kerala">Kerala</option>
+            </select>
+            <div class="home-state-error"
+                *ngIf="userForm.get('homeState')?.invalid && (userForm.get('homeState')?.touched || userForm.get('homeState')?.dirty)">
+                <small>Home state is required.</small>
+            </div>
+
+            <select formControlName="homeCity" class="dropdown">
+                <option value="" disabled>Select Home City</option>
+                <option value="Patna">Patna</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Ludhiana">Ludhiana</option>
+                <option value="Agra">Agra</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Noida">Noida</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+                <option value="Kota">Kota</option>
+            </select>
+            <div class="home-city-error"
+                *ngIf="userForm.get('homeCity')?.invalid && (userForm.get('homeCity')?.touched || userForm.get('homeCity')?.dirty)">
+                <small>Home city is required.</small>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <select formControlName="preferredLocation" class="dropdown">
+                <option value="" disabled>Select Preferred Location</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+                <option value="Gurgaon">Gurgaon/option>
+            </select>
+            <div class="preferred-location-error"
+                *ngIf="userForm.get('preferredLocation')?.invalid && (userForm.get('preferredLocation')?.touched || userForm.get('preferredLocation')?.dirty)">
+                <small>Preferred location is required.</small>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <input type="url" formControlName="linkedinLink" placeholder="LinkedIn Link" />
+            <div class="linkedin-error"
+                *ngIf="userForm.get('linkedinLink')?.invalid && (userForm.get('linkedinLink')?.touched || userForm.get('linkedinLink')?.dirty)">
+                <small *ngIf="userForm.get('linkedinLink')?.errors?.['required']">LinkedIn link is required.</small>
+                <small *ngIf="userForm.get('linkedinLink')?.errors?.['pattern']">Please enter a valid LinkedIn
+                    URL.</small>
+            </div>
+
+            <input type="url" formControlName="githubLink" placeholder="GitHub Link" />
+            <div class="github-error"
+                *ngIf="userForm.get('githubLink')?.invalid && (userForm.get('githubLink')?.touched || userForm.get('githubLink')?.dirty)">
+                <small *ngIf="userForm.get('githubLink')?.errors?.['required']">GitHub link is required.</small>
+                <small *ngIf="userForm.get('githubLink')?.errors?.['pattern']">Please enter a valid GitHub URL.</small>
+            </div>
+        </div>
+
+
+
+        <div class="input-row">
+            <input type="password" formControlName="password" placeholder="Password" />
+            <div class="password-error"
+                *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.touched || userForm.get('password')?.dirty)">
+                <small *ngIf="userForm.get('password')?.errors?.['required']">Password is required.</small>
+                <small *ngIf="userForm.get('password')?.errors?.['weakPassword']">Password must be long with uppercase,
+                    lowercase, number, and special character.</small>
+            </div>
+
+            <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+            <div class="confirmPass-error">
+                <small
+                    *ngIf="userForm.get('confirmPassword')?.errors?.['required'] && (userForm.get('confirmPassword')?.touched || userForm.get('confirmPassword')?.dirty)">
+                    Confirm Password is required.
+                </small>
+                <small
+                    *ngIf="userForm.hasError('passwordsMismatch') && (userForm.get('confirmPassword')?.touched || userForm.get('confirmPassword')?.dirty)">
+                    Password and Confirm Password must be the same.
+                </small>
+            </div>
+
+        </div>
+
+
+        <legend class="edu">Education Details</legend>
+        <div class="input-row">
+            <select formControlName="educationLevel" class="dropdown">
+                <option value="" disabled>Select Education Level</option>
+                <option value="10th">10th</option>
+                <option value="12th">12th</option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+            </select>
+            <input type="text" formControlName="college" placeholder="College" />
+        </div>
+
+        <div *ngIf="userForm.get('educationLevel')?.touched && userForm.get('educationLevel')?.invalid"
+            class="education-error">
+            Education level is required.
+        </div>
+
+        <div *ngIf="userForm.get('college')?.touched && userForm.get('college')?.invalid" class="college-error">
+            <span *ngIf="userForm.get('college')?.errors?.['required']">College name is required.</span>
+            <span *ngIf="userForm.get('college')?.errors?.['minlength']">College name must be 3 characters long </span>
+            <span *ngIf="userForm.get('college')?.errors?.['pattern']">contain only alphabets.</span>
+        </div>
+
+
+
+        <div class="input-row">
+            <div class="field-container">
+                <select formControlName="course" class="dropdown">
+                    <option value="" disabled>Course</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Science">Science</option>
+                    <option value="Law">Law</option>
+                    <option value="Business">Business</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Nursing">Nursing</option>
+                </select>
+                <div *ngIf="userForm.get('course')?.touched && userForm.get('course')?.invalid" class="course-error">
+                    <span *ngIf="userForm.get('course')?.errors?.['required']">Course selection is required.</span>
+                </div>
+            </div>
+
+            <div class="field-container" id="specilization-feild">
+                <input type="text" formControlName="specialization" placeholder="Specialization" />
+                <div *ngIf="userForm.get('specialization')?.touched && userForm.get('specialization')?.invalid"
+                    class="specialization-error">
+                    <span *ngIf="userForm.get('specialization')?.errors?.['required']">Specialization is
+                        required.</span>
+                    <span *ngIf="userForm.get('specialization')?.errors?.['minlength']">Specialization must be 3
+                        characters long<br></span>
+                    <span *ngIf="userForm.get('specialization')?.errors?.['pattern']">It must contain only
+                        alphabets.</span>
+                </div>
+            </div>
+
+            <div class="field-container" id="cgpa-feild">
+                <input type="text" formControlName="cgpa" placeholder="Avg Marks (CGPA)" />
+                <div *ngIf="userForm.get('cgpa')?.touched && userForm.get('cgpa')?.invalid" class="cgpa-error">
+                    <span *ngIf="userForm.get('cgpa')?.errors?.['required']">CGPA is required.</span>
+                    <span *ngIf="userForm.get('cgpa')?.errors?.['min']">CGPA must be between 0 and 10.</span>
+                    <span *ngIf="userForm.get('cgpa')?.errors?.['max']">CGPA must be between 0 and 10.<br></span>
+                    <span *ngIf="userForm.get('cgpa')?.errors?.['pattern']">CGPA must be a numeric value.</span>
+                </div>
+            </div>
+        </div>
+
+
+        <legend class="pro">Professional Details</legend>
+
+        <div class="input-row">
+            <select formControlName="positionApplying" class="dropdown">
+                <option value="" disabled>Position Applying</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="DevOps Engineer">DevOps Engineer</option>
+                <option value="Product Manager">Product Manager</option>
+            </select>
+
+            <input type="file" formControlName="resume" class="file-input" accept=".doc, .docx, .pdf"
+                (change)="onFileSelect($event)" (focus)="showResumeMessage()" (blur)="hideResumeMessage()" />
+        </div>
+        <div *ngIf="userForm.get('positionApplying')?.touched && userForm.get('positionApplying')?.invalid"
+            class="positionApplying-error">
+            Position applying is required.
+        </div>
+        <span *ngIf="showResumeMsg" class="resume-error">Upload your resume in .doc, .docx, or .pdf format.</span>
+        <span *ngIf="userForm.controls['resume'].errors?.['invalidFormat']" class="resume-error">
+            Invalid file format. Please upload a .doc, .docx, or .pdf file.
+        </span>
+
+        <div class="input-row">
+            <select formControlName="primarySkill" class="dropdown">
+                <option value="" disabled>Primary Skill</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Ruby">Ruby</option>
+            </select>
+
+            <select formControlName="secondarySkill" class="dropdown">
+                <option value="" disabled>Secondary Skill</option>
+                <option value="HTML/CSS">HTML/CSS</option>
+                <option value="React">React</option>
+                <option value="Angular">Angular</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Django">Django</option>
+            </select>
+        </div>
+        <div *ngIf="userForm.get('primarySkill')?.touched && userForm.get('primarySkill')?.invalid"
+            class="primarySkill-error">
+            Primary skill is required.
+        </div>
+        <div *ngIf="userForm.get('secondarySkill')?.touched && userForm.get('secondarySkill')?.invalid"
+            class="secondarySkill-error">
+            Secondary skill is required.
+        </div>
+
+        <div class="checkbox-row">
+            <input type="checkbox" formControlName="agree" />
+            <label>I have checked all the information.</label>
+            <div *ngIf="userForm.get('agree')?.invalid && userForm.get('agree')?.touched" class="agree-error">
+                You must check the box to submit the form.
+            </div>
+        </div>
+
+        <div class="submit-row">
+            <button type="button" (click)="onSubmit()">Submit</button>
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+        </div>
+    </form>

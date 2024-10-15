@@ -1,0 +1,365 @@
+.top-section {
+    position: relative;
+    text-align: center;
+}
+
+.top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 10px;
+}
+
+.top-section h1 {
+    color: white;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+
+}
+
+.form-container {
+    background-color: #fff;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.edu,
+.pro {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+
+}
+
+.fullname {
+    width: 47%;
+    gap: 10px;
+}
+
+.email {
+    width: 47%;
+    margin-left: 20px;
+}
+
+.input-row input[type="url"],
+.input-row input[type="text"],
+.input-row input[type="email"],
+.input-row input[type="password"],
+.input-row input[type="date"],
+.input-row input[type="tel"],
+.input-row input[type="file"]
+
+/* .input-row input[type="url"] */
+    {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.gender-error {
+    position: absolute;
+    margin-top: 36px;
+    color: red;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.dob-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    margin-left: 24%;
+    position: absolute;
+}
+
+.mobile-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    margin-left: 48%;
+    position: absolute;
+}
+
+.alternatemobile-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.alternateEmail-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.state-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+
+}
+
+.city-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.home-state-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.home-city-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.preferred-location-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+
+}
+
+.password-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.confirmPass-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+
+}
+
+.linkedin-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.github-error {
+    margin-top: 37px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.education-error {
+    color: red;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    margin-top: -12px;
+}
+
+.college-error {
+    position: absolute;
+    margin-left: 36%;
+    margin-top: -17px;
+    color: red;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+
+.course-error {
+    position: absolute;
+    color: red;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.specialization-error {
+
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.cgpa-error {
+
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+
+.field-container {
+
+    width: 100%;
+}
+
+#specilization-feild {
+    margin-right: 20px;
+}
+
+#cgpa-feild {
+    margin-right: 20px;
+}
+
+.positionApplying-error {
+    margin-top: -16px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.resume-error {
+    margin-top: -16px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+
+.primarySkill-error {
+    margin-top: -15px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.secondarySkill-error {
+    margin-top: -15px;
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.agree-error{
+    color: red;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+}
+
+.gender-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: #fff;
+    color: #495057;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: #fff;
+    color: #495057;
+}
+
+
+
+.submit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.submit-row button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-row button:hover {
+    background-color: #0056b3;
+}
+
+.submit-row a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.submit-row a:hover {
+    text-decoration: underline;
+}
+
+.checkbox-row {
+    margin-bottom: 20px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    margin-right: 10px;
+}
